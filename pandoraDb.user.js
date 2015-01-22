@@ -10,6 +10,8 @@
 
 var scraper = {
   watchNowPlaying: function() {
+    // .playerBarAlbum is the last attribute updated by pandora. It /is/
+    // refreshed even if next song is on the same album.
     $('.playerBarAlbum').on("DOMNodeInserted", function(data) {
       var songInfo = scraper.getSongInfo();
       console.log("songInfo: ",songInfo);
