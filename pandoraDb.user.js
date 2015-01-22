@@ -8,12 +8,12 @@
 // @version     0.1
 // ==/UserScript==
 
-var scraper = {
+var pdb = {
   watchNowPlaying: function() {
     // .playerBarAlbum is the last attribute updated by pandora. It /is/
     // refreshed even if next song is on the same album.
     $('.playerBarAlbum').on("DOMNodeInserted", function(data) {
-      var songInfo = scraper.getSongInfo();
+      var songInfo = pdb.getSongInfo();
       console.log("songInfo: ",songInfo);
     });
   },
@@ -27,10 +27,7 @@ var scraper = {
       liked: $('.thumbUpButton').hasClass('indicator')
     };
     return songInfo;
-  }
-}
-
-var db = {
+  },
 
   buildEntry: function(songInfo) {
     this.title: songInfo.title,
