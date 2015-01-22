@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit Tests</title>
+  <link rel="stylesheet" type="text/css" href="//code.jquery.com/qunit/qunit-1.17.1.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+    
+    <div id="stationList">
+      <div class="stationListItem">
+        <div id="shuffleContainer">
+          <ul class="stationName">
+            <li>
+              <div id="shuffleIcon">Shuffle</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stationListItem">
+        <ul class="stationName">
+          <li>
+            <div class="stationNameText   " title="Michael Jackson Radio">       Michael Jackson Radio                    </div>
+            <ul>
+              <li></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="options clearfix">
+          <div class="option optionsItem">options</div>
+          <div class="option addVariety">add variety</div>
+        </div>
+        <div style="display: none;" class="inactiveHoverArrow"> </div>
+      </div>
+
+      <div class="stationListItem  selected">
+        <ul class="stationName">
+          <li>
+            <div class="stationNameText   " title="Royksopp Radio">       Royksopp Radio                    </div>
+            <ul>
+              <li></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="options clearfix">
+          <div class="option optionsItem">options</div>
+          <div class="option addVariety">add variety</div>
+        </div>
+        <div style="display: none;" class="inactiveHoverArrow"> </div>
+      </div>
+    </div>
+    
+    <div class="buttons">
+      <div class="thumbDownButton"><a href="#"></a></div>
+      <div class="thumbUpButton"><a href="#"></a></div>
+      <div style="display: none;" class="playButton"><a href="#"></a></div>
+      <div style="display: block;" class="pauseButton"><a href="#"></a></div>
+      <div class="skipButton"><a href="#"></a></div>
+      <div class="volumePosition">
+        <div class="volumeControl">
+          <div class="volumeBackground">
+            <div class="volumeBar"></div>
+            <div style="left: 42.96px;" class="volumeKnob ui-draggable ui-draggable-handle"></div>
+          </div>
+          <div class="volumeButton"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info" style="">
+      <div><a href="http://www.pandora.com/inception-film-score/inception/time" class="playerBarSong">Inception</a></div>
+      <div><span class="playerByText">by</span> <a href="http://www.pandora.com/hans-zimmer-composer" class="playerBarArtist">Zimmer, Hans</a></div>
+      <div><span class="playerOnText">on</span> <a href="http://www.pandora.com/inception-film-score/inception" style="" class="playerBarAlbum">Inception (Film Score), Inception</a></div>
+    </div>
+
+  </div>
+
+  <script src="//code.jquery.com/qunit/qunit-1.17.1.js"></script>
+  <script src="tests.js"></script>
+</body>
+</html>
