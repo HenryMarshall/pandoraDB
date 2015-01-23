@@ -26,7 +26,7 @@ var pdb = {
       liked: $('.thumbUpButton').hasClass('indicator')
     };
     return songInfo;
-  }
+  },
 
   // buildEntry: function(songInfo) {
   //   this.title: songInfo.title,
@@ -36,9 +36,10 @@ var pdb = {
   //   this.playCount: { _total: 0 }
   // }
 
-  // generateSongId: function(virginEntry) {
-  //   return CryptoJS.MD5(virginEntry);
-  // },
+  generateId: function(song) {
+    var hash = CryptoJS.MD5(song.title + song.artist + song.album);
+    return hash.toString();
+  },
 
   // getEntry: function(virginEntry) {
   //   var id = generateSongId(virginEntry),
