@@ -25,6 +25,14 @@ var testData = {
   }
 };
 
+var GM_config = {
+  getValue: undefined
+}
+
+// Replicate Greasemonkey functions for testing purposes
+function GM_getValue(songId) {
+  return GM_config.getValue;
+}
 
 
 // Tests
@@ -50,6 +58,14 @@ QUnit.test("watchForChanges with no change", function(assert) {
   pdb.watchForChanges(".playerBarAlbum", function() {
     assert.ok(true);
   });
+});
+
+QUnit.test("getOrBuildEntry", function(assert) {
+  assert.propEqual(pdb.getOrBuildEntry(testData.playInfo), testData.newEntry);
+
+  // This makes GM_getValue return an entry
+  GM_config.getValue = JSON.stringify(testData.playedEntry);
+  assert.propEqual(pdb.getOrBuildEntry(testData.playInfo), testData.playedEntry);
 });
 
 QUnit.test("buildEntry", function(assert) {

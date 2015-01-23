@@ -29,8 +29,6 @@ var pdb = {
     return playInfo;
   },
 
-  // This needs test coverage, but GM_getValue needs to be called from within 
-  // greasemonkey.
   getOrBuildEntry: function(playInfo) {
     var songId = pdb.generateId(playInfo),
         songDb = GM_getValue(songId),
