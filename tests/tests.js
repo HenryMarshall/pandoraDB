@@ -9,3 +9,21 @@ QUnit.test("pdb.getSongInfo", function(assert) {
 
   assert.deepEqual( pdb.getSongInfo(), expected );
 });
+
+QUnit.test("pdb.watchForChanges with changes", function(assert) {
+  assert.expect(1);
+
+  pdb.watchForChanges(".playerBarAlbum", function() {
+    assert.ok(true);
+  });
+
+  $('.playerBarAlbum').text("changed")
+});
+
+QUnit.test("pdb.watchForChanges with no change", function(assert) {
+  assert.expect(0);
+
+  pdb.watchForChanges(".playerBarAlbum", function() {
+    assert.ok(true);
+  });
+});

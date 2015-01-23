@@ -3,18 +3,17 @@
 // @namespace   https://github.com/hbaughman
 // @include     http://www.pandora.com/*
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
-// @require     http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"
+// @require     http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js
 // @grant       none
 // @version     0.1
 // ==/UserScript==
 
 var pdb = {
-  watchNowPlaying: function() {
-    // .playerBarAlbum is the last attribute updated by pandora. It /is/
-    // refreshed even if next song is on the same album.
-    $('.playerBarAlbum').on("DOMNodeInserted", function(data) {
-      var songInfo = pdb.getSongInfo();
-      console.log("songInfo: ",songInfo);
+  watchForChanges: function(toBeWatched, callback) {
+    // toBeWatched should be the last attribute updated by pandora. This is 
+    // .playerBarAlbum as of 2014-12-15
+    $(toBeWatched).on("DOMNodeInserted", function(data) {
+      callback();
     });
   },
 
@@ -35,7 +34,7 @@ var pdb = {
   //   this.album: songInfo.album,
   //   this.liked: [],
   //   this.playCount: { _total: 0 }
-  // },
+  // }
 
   // generateSongId: function(virginEntry) {
   //   return CryptoJS.MD5(virginEntry);
