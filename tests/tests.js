@@ -25,12 +25,16 @@ var testData = {
   }
 };
 
-QUnit.test("pdb.getPlayInfo", function(assert) {
+
+
+// Tests
+
+QUnit.test("getPlayInfo", function(assert) {
   assert.deepEqual(pdb.getPlayInfo(), testData.playInfo);
 });
 
 // Refactor these two tests
-QUnit.test("pdb.watchForChanges with changes", function(assert) {
+QUnit.test("watchForChanges with changes", function(assert) {
   assert.expect(1);
 
   pdb.watchForChanges(".playerBarAlbum", function() {
@@ -40,12 +44,16 @@ QUnit.test("pdb.watchForChanges with changes", function(assert) {
   $('.playerBarAlbum').text("changed")
 });
 
-QUnit.test("pdb.watchForChanges with no change", function(assert) {
+QUnit.test("watchForChanges with no change", function(assert) {
   assert.expect(0);
 
   pdb.watchForChanges(".playerBarAlbum", function() {
     assert.ok(true);
   });
+});
+
+QUnit.test("buildEntry", function(assert) {
+  assert.propEqual(new pdb.buildEntry(testData.playInfo), testData.newEntry);
 });
 
 QUnit.test("generateId", function(assert) {
