@@ -29,6 +29,41 @@ var pdb = {
     return playInfo;
   },
 
+  // This needs test coverage, but GM_getValue needs to be called from within 
+  // greasemonkey.
+  getOrBuildEntry: function(playInfo) {
+    var songId = generateId(playInfo),
+        songDb = GM_getValue(songId),
+        songEntry = songDb ? $.parseJSON(songDb) : buildEntry(playInfo);
+    return songEntry;
+  },
 
+  generateId: function(playInfo) {
+    var hash = CryptoJS.MD5(playInfo.title + playInfo.artist + playInfo.album);
+    return hash.toString();
+  },
+
+  buildEntry: function(playInfo) {
+    this.title = playInfo.title;
+    this.artist = playInfo.artist;
+    this.album = playInfo.album;
+    this.liked = [];
+    this.playCount = { "_total": 0 };
+  },
+
+  incrementEntry: function(playInfo, songEntry) {
+    var station = playInfo.station,
+        // Duplicates primitive data-type
+        stationCount = songEntry.playCount[station];
+
+    if (playInfo.liked && songEntry.liked.indexOf(station) === -1) {
+      songEntry.liked.push(station);
+    }
+
+    ++songEntry.playCount._total;
+    songEntry.playCount[station] = stationCount ? ++stationCount : 1;
+
+    return songEntry;
+  }
 
 }
