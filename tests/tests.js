@@ -4,13 +4,14 @@ var testData = {
     artist: "Michael Jackson",
     album: "Thriller",
     station: "Michael Jackson Radio",
-    liked: false
+    liked: false,
+    user: "foo@bar.com"
   }
 };
 
-QUnit.test("pdb.getSongInfo", function(assert) {
+QUnit.test("pdb.getPlayInfo", function(assert) {
 
-  assert.deepEqual( pdb.getSongInfo(), testData.scraped );
+  assert.deepEqual( pdb.getPlayInfo(), testData.scraped );
 });
 
 // Refactor these two tests

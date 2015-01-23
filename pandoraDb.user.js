@@ -17,39 +17,18 @@ var pdb = {
     });
   },
 
-  getSongInfo: function() {
-    var songInfo = {
+  getPlayInfo: function() {
+    var playInfo = {
       title: $('.playerBarSong').text(),
       artist: $('.playerBarArtist').text(),
       album: $('.playerBarAlbum').text(),
       station: $('.stationListItem.selected').find('.stationNameText').attr('title'),
-      liked: $('.thumbUpButton').hasClass('indicator')
+      liked: $('.thumbUpButton').hasClass('indicator'),
+      user: $('.userName').text()
     };
-    return songInfo;
+    return playInfo;
   },
 
-  // buildEntry: function(songInfo) {
-  //   this.title: songInfo.title,
-  //   this.artist: songInfo.artist,
-  //   this.album: songInfo.album,
-  //   this.liked: [],
-  //   this.playCount: { _total: 0 }
-  // }
 
-  generateId: function(song) {
-    var hash = CryptoJS.MD5(song.title + song.artist + song.album);
-    return hash.toString();
-  },
 
-  // getEntry: function(virginEntry) {
-  //   var id = generateSongId(virginEntry),
-  //       // Returns undefined if entry DNE.
-  //       getDbEntry = GM_getValue(id);
-
-  //   return getDbEntry ? $.parseJSON(getDbEntry) : virginEntry;
-  // },
-
-  // incrementEntry: function(entry) {
-    
-  // }
 }
