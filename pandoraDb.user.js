@@ -32,9 +32,11 @@ var pdb = {
   // This needs test coverage, but GM_getValue needs to be called from within 
   // greasemonkey.
   getOrBuildEntry: function(playInfo) {
-    var songId = generateId(playInfo),
+    var songId = pdb.generateId(playInfo),
         songDb = GM_getValue(songId),
-        songEntry = songDb ? $.parseJSON(songDb) : buildEntry(playInfo);
+        songEntry = songDb ? $.parseJSON(songDb) : new pdb.buildEntry(playInfo);
+
+        console.log(songEntry);
     return songEntry;
   },
 
