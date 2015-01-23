@@ -27,29 +27,29 @@ var pdb = {
       liked: $('.thumbUpButton').hasClass('indicator')
     };
     return songInfo;
-  },
-
-  buildEntry: function(songInfo) {
-    this.title: songInfo.title,
-    this.artist: songInfo.artist,
-    this.album: songInfo.album,
-    this.liked: [],
-    this.playCount: { _total: 0 }
-  },
-
-  generateSongId: function(virginEntry) {
-    return CryptoJS.MD5(virginEntry);
-  },
-
-  getEntry: function(virginEntry) {
-    var id = generateSongId(virginEntry),
-        // Returns undefined if entry DNE.
-        getDbEntry = GM_getValue(id);
-
-    return getDbEntry ? $.parseJSON(getDbEntry) : virginEntry;
-  },
-
-  incrementEntry: function(entry) {
-    
   }
+
+  // buildEntry: function(songInfo) {
+  //   this.title: songInfo.title,
+  //   this.artist: songInfo.artist,
+  //   this.album: songInfo.album,
+  //   this.liked: [],
+  //   this.playCount: { _total: 0 }
+  // },
+
+  // generateSongId: function(virginEntry) {
+  //   return CryptoJS.MD5(virginEntry);
+  // },
+
+  // getEntry: function(virginEntry) {
+  //   var id = generateSongId(virginEntry),
+  //       // Returns undefined if entry DNE.
+  //       getDbEntry = GM_getValue(id);
+
+  //   return getDbEntry ? $.parseJSON(getDbEntry) : virginEntry;
+  // },
+
+  // incrementEntry: function(entry) {
+    
+  // }
 }
